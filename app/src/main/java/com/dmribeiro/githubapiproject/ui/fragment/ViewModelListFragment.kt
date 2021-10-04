@@ -29,8 +29,7 @@ class ViewModelListFragment @Inject constructor(
 
     private suspend fun getAllRepos(){
         repoResponse.postValue(NetworkResource.Loading())
-        val response = repository.getAllReposTest()
-        Log.d("***", response.toString())
+        val response = repository.remote.getRepositoriesByLanguage()
         repoResponse.postValue(handleRepoResponse(response))
     }
 

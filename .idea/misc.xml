@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/dinok/AndroidStudioProjects/GitHubAPIProject/app/src/main/res/drawable/custom_background.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/dinok/AndroidStudioProjects/GitHubAPIProject/app/src/main/res/drawable/custom_background_right.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/dinok/AndroidStudioProjects/GitHubAPIProject/app/src/main/res/drawable/ic_twotone_call_split_24.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/dinok/AndroidStudioProjects/GitHubAPIProject/app/src/main/res/layout/activity_main.xml" value="0.20260416666666667" />
-        <entry key="..\:/Users/dinok/AndroidStudioProjects/GitHubAPIProject/app/src/main/res/layout/item_list.xml" value="0.33" />
+        <entry key="..\:/Users/dinok/AndroidStudioProjects/GitHubAPIProject/app/src/main/res/layout/fragment_list.xml" value="0.5" />
+        <entry key="..\:/Users/dinok/AndroidStudioProjects/GitHubAPIProject/app/src/main/res/layout/item_list.xml" value="0.5" />
       </map>
     </option>
   </component>

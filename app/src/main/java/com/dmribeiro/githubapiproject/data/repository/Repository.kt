@@ -12,12 +12,6 @@ class Repository @Inject constructor(
     remoteDataSource: RemoteDataSource,
 ) {
 
-    private val api = NetworkModule.getService()
-    suspend fun getAllReposTest(): Response<Repos> {
-        return api.getRepositoriesByLanguage()
-    }
-
-
     val remote = remoteDataSource
 
 }

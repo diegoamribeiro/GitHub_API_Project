@@ -32,18 +32,16 @@ class ListFragment : Fragment() {
     private fun requestApiData(){
         viewModel.getAllReposByStars()
         viewModel.repoResponse.observe(viewLifecycleOwner, { response ->
-            Log.d("****", "RequestCalled")
             when(response){
                 is NetworkResource.Success ->{
                     response.data?.let {
-                        Log.d("***", it.items.toString())
+                        Log.d("***Success", it.items.toString())
                     }
                 }
                 is NetworkResource.Error ->{
-                    Log.d("***", response.message.toString())
+                    Log.d("***Error", response.message.toString())
                 }
             }
         })
     }
-
 }

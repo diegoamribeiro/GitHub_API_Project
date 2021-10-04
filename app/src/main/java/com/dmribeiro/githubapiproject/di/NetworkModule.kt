@@ -52,31 +52,4 @@ object NetworkModule {
             .build()
     }
 
-
-    /**----------------------**/
-
-    fun getService(): RepoApi {
-        val logging = HttpLoggingInterceptor()
-        logging.level = HttpLoggingInterceptor.Level.BODY
-
-        val httpClient = OkHttpClient.Builder()
-        httpClient.addInterceptor(logging)
-        httpClient.addInterceptor { chain ->
-            val original = chain.request()
-            val originalHttpUrl = original.url
-            val url = originalHttpUrl.newBuilder()
-                .build()
-
-            chain.proceed(original.newBuilder().url(url).build())
-        }
-
-        val gson = GsonBuilder().setLenient().create()
-        val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .client(httpClient.build())
-            .build()
-
-        return retrofit.create(RepoApi::class.java)
-    }
 }
