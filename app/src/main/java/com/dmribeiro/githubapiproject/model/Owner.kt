@@ -1,6 +1,5 @@
 package com.dmribeiro.githubapiproject.model
 
-
 import com.google.gson.annotations.SerializedName
 
 data class Owner(

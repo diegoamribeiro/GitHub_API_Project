@@ -7,8 +7,11 @@
         <entry key="..\:/Users/dinok/AndroidStudioProjects/GitHubAPIProject/app/src/main/res/drawable/custom_background_right.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/dinok/AndroidStudioProjects/GitHubAPIProject/app/src/main/res/drawable/ic_twotone_call_split_24.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/dinok/AndroidStudioProjects/GitHubAPIProject/app/src/main/res/layout/activity_main.xml" value="0.20260416666666667" />
-        <entry key="..\:/Users/dinok/AndroidStudioProjects/GitHubAPIProject/app/src/main/res/layout/fragment_list.xml" value="0.5" />
-        <entry key="..\:/Users/dinok/AndroidStudioProjects/GitHubAPIProject/app/src/main/res/layout/item_list.xml" value="0.5" />
+        <entry key="..\:/Users/dinok/AndroidStudioProjects/GitHubAPIProject/app/src/main/res/layout/fragment_list.xml" value="0.33" />
+        <entry key="..\:/Users/dinok/AndroidStudioProjects/GitHubAPIProject/app/src/main/res/layout/item_list.xml" value="0.33" />
+        <entry key="..\:/Users/dinok/AndroidStudioProjects/GitHubAPIProject/app/src/main/res/layout/placeholder_meals_layout.xml" value="0.3625" />
+        <entry key="..\:/Users/dinok/AndroidStudioProjects/GitHubAPIProject/app/src/main/res/layout/placeholder_repos_layout.xml" value="0.3569230769230769" />
+        <entry key="..\:/Users/dinok/AndroidStudioProjects/GitHubAPIProject/app/src/main/res/layout/repos_load_state_footer_view_item.xml" value="0.2078125" />
       </map>
     </option>
   </component>

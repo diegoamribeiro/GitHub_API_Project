@@ -6,42 +6,67 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.widget.Toast
+import androidx.core.view.isNotEmpty
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.dmribeiro.githubapiproject.data.remote.NetworkResource
 import com.dmribeiro.githubapiproject.databinding.FragmentListBinding
+import com.dmribeiro.githubapiproject.model.Repo
+import com.dmribeiro.githubapiproject.ui.ReposLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.distinctUntilChangedBy
+import kotlinx.coroutines.flow.filter
+import kotlin.coroutines.suspendCoroutine
 
 @AndroidEntryPoint
 class ListFragment : Fragment() {
 
     private lateinit var binding: FragmentListBinding
-    private lateinit var viewModel: ViewModelListFragment
+    private val viewModel by viewModels<ViewModelListFragment>()
+    private val adapter: RepoAdapter by lazy { RepoAdapter() }
+    private lateinit var recyclerView: RecyclerView
+    //private var searchJob: Job? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View{
-        viewModel = ViewModelProvider(requireActivity()).get(ViewModelListFragment::class.java)
         binding = FragmentListBinding.inflate(layoutInflater, container, false)
 
+        remoteCall()
+        setupRecyclerView()
 
-        requestApiData()
+
         return binding.root
     }
 
-    private fun requestApiData(){
-        viewModel.getAllReposByStars()
-        viewModel.repoResponse.observe(viewLifecycleOwner, { response ->
-            when(response){
-                is NetworkResource.Success ->{
-                    response.data?.let {
-                        Log.d("***Success", it.items.toString())
-                    }
-                }
-                is NetworkResource.Error ->{
-                    Log.d("***Error", response.message.toString())
-                }
+
+    private fun setupRecyclerView(){
+        recyclerView = binding.rvList
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(
+            header = ReposLoadStateAdapter{adapter.retry()},
+            footer = ReposLoadStateAdapter{adapter.retry()}
+        )
+    }
+
+    private fun remoteCall(){
+        lifecycleScope.launchWhenStarted {
+            viewModel.getAllRepos().collectLatest { response ->
+                adapter.submitData(response)
             }
-        })
+        }
     }
 }
+

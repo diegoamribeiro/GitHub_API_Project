@@ -4,19 +4,22 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="8dp"
+    android:elevation="3dp"
     app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="0dp"
-        android:background="#D6D3CF">
+        android:background="@color/caramelo">
 
         <ImageView
-            android:id="@+id/iv_user"
-            android:layout_width="95dp"
-            android:layout_height="95dp"
+            android:id="@+id/iv_profile"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
@@ -33,18 +36,19 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:textColor="#035C9F"
+            android:textColor="@color/blue_ocean"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/iv_user"
+            app:layout_constraintStart_toEndOf="@+id/iv_profile"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="repoName" />
 
         <LinearLayout
             android:id="@+id/flag_star"
-            android:layout_width="65dp"
+            android:layout_width="wrap_content"
             android:layout_height="29dp"
+            android:paddingEnd="3dp"
             android:background="@drawable/custom_background_left"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="@+id/flag_fork"
@@ -60,11 +64,11 @@
                 android:src="@drawable/ic_star" />
 
             <TextView
-                android:id="@+id/et_star"
+                android:id="@+id/tv_star"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:textColor="#035C9F"
+                android:textColor="@color/blue_ocean"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 tools:text="34.5" />
@@ -76,7 +80,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textColor="#035C9F"
+            android:textColor="@color/blue_ocean"
             android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/tv_repo"
@@ -86,9 +90,10 @@
 
         <LinearLayout
             android:id="@+id/flag_fork"
-            android:layout_width="65dp"
+            android:layout_width="wrap_content"
             android:layout_height="29dp"
             android:layout_marginEnd="16dp"
+            android:paddingEnd="3dp"
             android:background="@drawable/custom_background_right"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -104,11 +109,11 @@
                 android:src="@drawable/ic_fork" />
 
             <TextView
-                android:id="@+id/et_fork"
+                android:id="@+id/tv_fork"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:textColor="#035C9F"
+                android:textColor="@color/blue_ocean"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 tools:text="34.5" />

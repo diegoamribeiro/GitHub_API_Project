@@ -2,45 +2,31 @@ package com.dmribeiro.githubapiproject.ui.fragment
 
 import android.app.Application
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.dmribeiro.githubapiproject.data.remote.NetworkResource
 import com.dmribeiro.githubapiproject.data.repository.Repository
-import com.dmribeiro.githubapiproject.model.Repos
+import com.dmribeiro.githubapiproject.model.Repo
+import com.dmribeiro.githubapiproject.model.RepoResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
 class ViewModelListFragment @Inject constructor(
-    application: Application,
     private val repository: Repository
-) : AndroidViewModel(application) {
+) : ViewModel() {
 
-    val repoResponse: MutableLiveData<NetworkResource<Repos>> = MutableLiveData()
+    //val repoResponse: MutableLiveData<NetworkResource<RepoResponse>> = MutableLiveData()
 
 
-    fun getAllReposByStars() = viewModelScope.launch(Dispatchers.IO) {
-        getAllRepos()
-    }
-
-    private suspend fun getAllRepos(){
-        repoResponse.postValue(NetworkResource.Loading())
-        val response = repository.remote.getRepositoriesByLanguage()
-        repoResponse.postValue(handleRepoResponse(response))
-    }
-
-    private fun handleRepoResponse(response: Response<Repos>): NetworkResource<Repos>{
-        repoResponse.postValue(NetworkResource.Loading())
-        return if (response.isSuccessful){
-            val repos = response.body()
-            NetworkResource.Success(repos!!)
-        }else{
-            NetworkResource.Error(response.message())
-        }
+    fun getAllRepos(): Flow<PagingData<Repo>>{
+        return repository.getSearchResultStream().cachedIn(viewModelScope)
     }
 
 }
