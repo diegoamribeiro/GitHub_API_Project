@@ -24,10 +24,7 @@ class RepoAdapter : PagingDataAdapter<Repo, RepoAdapter.RepoViewHolder>(REPO_COM
         if (repoItem != null) {
             holder.bind(repoItem)
         }
-
     }
-
-    //override fun getItemCount()= repoList.size
 
     companion object {
         private val REPO_COMPARATOR = object : DiffUtil.ItemCallback<Repo>() {
@@ -39,7 +36,7 @@ class RepoAdapter : PagingDataAdapter<Repo, RepoAdapter.RepoViewHolder>(REPO_COM
         }
     }
 
-    class RepoViewHolder(val binding: ItemListBinding): RecyclerView.ViewHolder(binding.root){
+    class RepoViewHolder(private val binding: ItemListBinding): RecyclerView.ViewHolder(binding.root){
         private val tvRepoName = binding.tvRepo
         private val tvAuthor = binding.tvAuthor
         private val tvStar = binding.tvStar
@@ -80,5 +77,4 @@ class RepoAdapter : PagingDataAdapter<Repo, RepoAdapter.RepoViewHolder>(REPO_COM
             }
         }
     }
-
 }

@@ -7,6 +7,7 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.dmribeiro.githubapiproject.data.remote.NetworkResource
 import com.dmribeiro.githubapiproject.data.repository.Repository
+import com.dmribeiro.githubapiproject.database.RepoDatabase
 import com.dmribeiro.githubapiproject.model.Repo
 import com.dmribeiro.githubapiproject.model.RepoResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,7 +24,6 @@ class ViewModelListFragment @Inject constructor(
 ) : ViewModel() {
 
     //val repoResponse: MutableLiveData<NetworkResource<RepoResponse>> = MutableLiveData()
-
 
     fun getAllRepos(): Flow<PagingData<Repo>>{
         return repository.getSearchResultStream().cachedIn(viewModelScope)
