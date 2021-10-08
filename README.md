@@ -27,7 +27,7 @@ This application consists of consume the GitHub API.
 
 # Available Languages
 <img alt="English" title="English" src="https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/gb.svg" width="22"> - [English](../README.md) </br>
-(README.pt_br.md)</br>
+</br>
 
 
 # Team
