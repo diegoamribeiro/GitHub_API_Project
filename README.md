@@ -23,13 +23,6 @@ This application consists of consume the GitHub API.
 - Clean Architecture
 
 
-
-![Mobile 1](https://github.com/dinoknot/assts/blob/main/assets_todo_app/swipe_to_delete.gif) ![Mobile 2](https://github.com/dinoknot/assts/blob/main/assets_todo_app/search_engine.gif)
-
-## Layout mobile
-![Mobile 3](https://github.com/dinoknot/assts/blob/main/assets_todo_app/print1.PNG) ![Mobile 4](https://github.com/dinoknot/assts/blob/main/assets_todo_app/print3.PNG)
-
-
 # Available Languages
 <img alt="English" title="English" src="https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/gb.svg" width="22"> - [English](../README.md) </br>
 <img alt="Português (Brasil)" title="Português (Brasil)" src="https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/br.svg" width="22"> - [Português (Brasil)](README.pt_br.md)</br>
