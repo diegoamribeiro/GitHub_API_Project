@@ -9,8 +9,6 @@ This app was developed during a challenge.
 
 This application consists of consume the GitHub API.
 
-The first update added was the Brazilian Portuguese language.
-
 # Used technologies
 
 - Dependency injection with Dagger Hilt
