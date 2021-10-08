@@ -22,6 +22,8 @@ This application consists of consume the GitHub API.
 - Coroutines
 - Clean Architecture
 
+![Mobile 1](https://github.com/dinoknot/assts/blob/main/assets_todo_app/Captura%20de%20tela%202021-10-08%20184309.png)
+
 
 # Available Languages
 <img alt="English" title="English" src="https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/gb.svg" width="22"> - [English](../README.md) </br>
