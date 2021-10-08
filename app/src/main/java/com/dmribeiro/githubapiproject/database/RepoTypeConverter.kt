@@ -8,7 +8,7 @@ import com.google.gson.reflect.TypeToken
 
 class RepoTypeConverter {
 
-    val gson = Gson()
+    private val gson = Gson()
 
     @TypeConverter
     fun ownerToString(owner: Owner): String{

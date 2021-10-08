@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="com.dmribeiro.githubapiproject.ui.fragment.ListFragment"
-        android:label="fragment_list"
+        android:label="Repositories"
         tools:layout="@layout/fragment_list" />
 </navigation>

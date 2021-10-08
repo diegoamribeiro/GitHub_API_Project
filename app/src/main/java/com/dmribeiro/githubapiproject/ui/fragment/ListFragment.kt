@@ -1,32 +1,26 @@
 package com.dmribeiro.githubapiproject.ui.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
-import android.widget.Toast
+import androidx.core.view.isEmpty
 import androidx.core.view.isNotEmpty
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.dmribeiro.githubapiproject.data.remote.NetworkResource
 import com.dmribeiro.githubapiproject.databinding.FragmentListBinding
-import com.dmribeiro.githubapiproject.model.Repo
 import com.dmribeiro.githubapiproject.ui.ReposLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.distinctUntilChangedBy
-import kotlinx.coroutines.flow.filter
-import kotlin.coroutines.suspendCoroutine
+import android.os.Parcelable
+
+
+
 
 @AndroidEntryPoint
 class ListFragment : Fragment() {
@@ -35,8 +29,6 @@ class ListFragment : Fragment() {
     private val viewModel by viewModels<ViewModelListFragment>()
     private val adapter: RepoAdapter by lazy { RepoAdapter() }
     private lateinit var recyclerView: RecyclerView
-    //private var searchJob: Job? = null
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,13 +36,10 @@ class ListFragment : Fragment() {
     ): View{
         binding = FragmentListBinding.inflate(layoutInflater, container, false)
 
-        remoteCall()
         setupRecyclerView()
-
-
+        remoteCall()
         return binding.root
     }
-
 
     private fun setupRecyclerView(){
         recyclerView = binding.rvList
@@ -59,6 +48,7 @@ class ListFragment : Fragment() {
             header = ReposLoadStateAdapter{adapter.retry()},
             footer = ReposLoadStateAdapter{adapter.retry()}
         )
+        adapter.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
     }
 
     private fun remoteCall(){

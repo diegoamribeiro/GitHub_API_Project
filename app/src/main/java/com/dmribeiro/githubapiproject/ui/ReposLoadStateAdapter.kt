@@ -38,7 +38,6 @@ class ReposLoadStateAdapter
         return ReposLoadStateViewHolder.create(parent, retry)
     }
 
-
     class ReposLoadStateViewHolder(
         private val binding: ReposLoadStateFooterViewItemBinding,
         retry: () -> Unit
