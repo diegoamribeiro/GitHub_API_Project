@@ -18,8 +18,8 @@ import com.dmribeiro.githubapiproject.ui.ReposLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import android.os.Parcelable
-
-
+import androidx.core.view.get
+import androidx.paging.RemoteMediator
 
 
 @AndroidEntryPoint
