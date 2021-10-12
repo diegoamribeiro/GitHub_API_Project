@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 interface RepoApi {
 
-    @Headers(GITHUB_TOKEN)
+    //@Headers(GITHUB_TOKEN)
     @GET("repositories?q=language:kotlin&sort=stars")
     suspend fun getRepositoriesByLanguage(
       @Query("page") page: Int,
